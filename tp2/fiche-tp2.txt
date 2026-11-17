@@ -1,0 +1,56 @@
+FICHE TP2 - Protéger et restaurer le site
+
+1. Prénom et nom :
+   Date :
+   Région :
+   Bucket du site :
+   Bucket de secours :
+   URL publique :
+
+2. Heure d’activation du versioning :
+   Identifiant AWS de la version 2 fonctionnelle :
+
+3. Incident 1 — mauvais téléversement
+   Heure de constat :
+   Heure de retour au fonctionnement normal :
+   Durée observée :
+   Action de récupération : téléchargement de la version 2 par son identifiant, puis téléversement comme nouvelle version.
+
+   Incident 2 — suppression simple
+   Message affiché par le site :
+   Heure de constat :
+   Heure de restauration :
+   Durée observée :
+   Action de récupération : suppression du seul marqueur de suppression après vérification.
+
+4. Pourquoi une ancienne version reste-t-elle disponible après une suppression simple ?
+Réponse : S3 ajoute un marqueur de suppression comme version courante ; les versions antérieures restent conservées tant qu’elles ne sont pas supprimées définitivement.
+
+5. Quelle suppression serait irréversible pendant cet exercice ?
+Réponse : la suppression définitive d’une version de fichier (ou d’un marqueur/version autre que celui précisément ciblé) ne peut pas être annulée par le versioning. Ne supprimer aucune ancienne version.
+
+6. Pourquoi l’archive ne doit-elle pas être placée dans le bucket public ?
+Réponse : la politique publique du site autorise s3:GetObject sur tous les objets du bucket ; l’archive deviendrait lisible par des visiteurs anonymes.
+
+7. Pourquoi deux buckets du même compte ne suffisent-ils pas à protéger contre tous les incidents ?
+Réponse : ils séparent les contenus et réduisent le risque d’erreur sur le site, mais une perte d’accès ou un incident touchant tout le compte pourrait affecter les deux buckets.
+
+8. Quels éléments de ce TP peuvent augmenter le stockage et les dépenses ?
+Réponse : chaque version S3 conservée stocke un objet complet ; l’archive dans le bucket de secours ajoute aussi du stockage. Les requêtes et transferts peuvent également contribuer aux coûts.
+
+9. Un objectif de reprise de 10 minutes aurait-il été respecté lors de vos essais ? Justifiez avec vos durées.
+Réponse : à compléter avec les durées observées lors des deux incidents.
+
+Exercice de calcul : 2 Mo × 8 versions = 16 Mo environ.
+
+Contrôles (Oui / Non)
+[ ] Mon site affiche la version 2 avec image et style
+[ ] Le versioning est activé et l’historique est visible
+[ ] J’ai restauré le fichier après le mauvais téléversement
+[ ] J’ai retiré le marqueur après la suppression simple
+[ ] Mon archive est dans un second bucket privé
+[ ] L’URL directe de l’archive refuse l’accès anonyme
+[ ] L’archive téléchargée et extraite fonctionne en local
+[ ] J’ai vérifié le budget et identifié les ressources conservées
+
+Captures à joindre : P1 versioning activé ; P2 site version 2 ; P3 historique et identifiant ; P4 restauration incident 1 ; P5 marqueur de suppression ; P6 restauration incident 2 ; P7 blocage public du bucket de secours ; P8 refus d’accès anonyme ; P9 extraction fonctionnelle ; P10 budget (masquer l’adresse e-mail).

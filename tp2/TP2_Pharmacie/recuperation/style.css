@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: light;
+  --green: #126b42;
+  --green-deep: #0b4c30;
+  --mint: #e7f3eb;
+  --ink: #183328;
+  --muted: #6d7c73;
+  --paper: #f7faf7;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'DM Sans', Arial, sans-serif; }
+.site-header { min-height: 78px; padding: 0 clamp(22px, 7vw, 104px); display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #e8eee9; }
+.brand { display: inline-flex; gap: 11px; align-items: center; color: var(--ink); text-decoration: none; font-size: 15px; letter-spacing: -.3px; }
+.brand strong { color: var(--green); }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: #fff; background: var(--green); font-size: 22px; line-height: 1; }
+.header-location { font-size: 13px; color: var(--muted); }
+main { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
+.hero { display: grid; grid-template-columns: 1fr 1.04fr; gap: clamp(36px, 7vw, 86px); align-items: center; padding: 74px 0 64px; }
+.hero-copy { padding: 10px 0; }
+.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 23px; color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.status-dot { width: 8px; height: 8px; background: #61a976; border-radius: 50%; box-shadow: 0 0 0 4px #e3f1e7; }
+h1, h2 { font-family: Manrope, Arial, sans-serif; }
+h1 { margin: 0; color: var(--ink); font-size: clamp(43px, 5.5vw, 70px); line-height: 1.04; letter-spacing: -.055em; font-weight: 700; }
+h1 em { color: var(--green); font-style: normal; }
+.intro { max-width: 440px; margin: 23px 0 29px; color: #65756b; font-size: 16px; line-height: 1.75; }
+.cta { display: inline-flex; align-items: center; gap: 13px; padding: 13px 17px; border-radius: 7px; background: var(--green); color: #fff; text-decoration: none; font-size: 13px; font-weight: 600; transition: background .2s, transform .2s; }
+.cta:hover { background: var(--green-deep); transform: translateY(-1px); }
+.hero-image-wrap { position: relative; overflow: hidden; border-radius: 16px; background: var(--mint); box-shadow: 0 20px 50px #18332812; }
+.hero-image-wrap img { display: block; width: 100%; aspect-ratio: 1.37 / 1; object-fit: cover; }
+.image-caption { position: absolute; right: 12px; bottom: 12px; padding: 6px 10px; border-radius: 20px; background: #ffffffdf; color: #4b6455; font-size: 10px; }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-bottom: 32px; }
+.info-card { min-height: 222px; padding: 23px 24px; border: 1px solid #e6ede7; border-radius: 12px; background: #fff; }
+.card-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--mint); color: var(--green); font-size: 20px; }
+.card-label { margin: 15px 0 5px; color: #78867e; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.info-card h2 { margin: 0 0 12px; font-size: 20px; letter-spacing: -.04em; }
+.info-card p:not(.card-label) { margin: 6px 0; color: #56675d; font-size: 13px; line-height: 1.6; }
+.info-card .detail { color: var(--green); font-size: 18px; font-weight: 700; }
+.info-card .muted { color: #94a097; font-size: 11px; }
+.welcome-card { background: #eff6f0; border-color: #eff6f0; }
+.signature { padding: 14px 0 34px; color: #8a978f; text-align: center; font-size: 11px; }
+.signature span { color: var(--green); font-weight: 600; }
+.site-footer { display: flex; justify-content: space-between; gap: 16px; padding: 22px clamp(22px, 7vw, 104px); border-top: 1px solid #e7ede8; background: #fff; color: #77847c; font-size: 11px; }
+.site-footer span:first-child { color: var(--green); font-weight: 700; }
+@media (max-width: 760px) { .hero { grid-template-columns: 1fr; gap: 30px; padding: 48px 0 38px; } .hero-image-wrap { grid-row: 1; } .hero-copy { padding: 0; } .info-grid { grid-template-columns: 1fr; } .info-card { min-height: auto; } .header-location { font-size: 11px; } }
+@media (max-width: 420px) { .site-header { min-height: 68px; } .brand { font-size: 13px; } main { width: calc(100% - 32px); } .site-footer { flex-direction: column; } }
